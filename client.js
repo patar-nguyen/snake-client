@@ -8,27 +8,24 @@ const connect = function () {
   });
 
   console.log('connected to server!');
+  conn.setEncoding("utf8");
+
+  conn.on('connect', () => {
+    conn.write('Name: Pat');
+    //conn.write('Move: up');
+  });
 
   conn.on('data', (data) => {
     console.log(data.toString());
     conn.end();
   });
 
-  conn.on('connect', () => {
-    conn.write('Name: Pat');
-    //conn.write('Move: up');
-
-  })
-
   // interpret incoming data as text
-  conn.setEncoding("utf8");
 
   return conn;
 };
 
-
-
 console.log("Connecting ...");
 connect();
 
-module.exports = connect;
+module.exports = {connect};
