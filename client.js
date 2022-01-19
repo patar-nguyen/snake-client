@@ -19,13 +19,14 @@ const connect = function () {
     //conn.write('Move: up');
 
   })
-  
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   return conn;
 };
+
+
 
 console.log("Connecting ...");
 connect();
