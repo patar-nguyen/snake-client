@@ -27,9 +27,12 @@ const handleUserInput = function (key) {
     connection.write('Move: right');
   }
 
+  if (key === 'q') {
+    connection.write('Say: Catch me if you can');
+  }
   if (key === '\u0003') {
     process.exit();
   }
 };
 
-module.exports = {setupInput};
+module.exports = setupInput;
